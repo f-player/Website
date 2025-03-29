@@ -1,0 +1,637 @@
+body{
+    margin:0px;
+    background-color: rgba(36, 36, 36, 0.849);
+
+}
+
+@keyframes moveBackground {
+    0% {
+        background-position: 0% 0%; /* Начальная позиция (вверху) */
+    }
+    50% {
+        background-position: 0% 100%; /* Позиция внизу */
+    }
+    100% {
+        background-position: 0% 0%; /* Возврат в начальную позицию (вверх) */
+    }
+}
+
+.yButtonWave {
+    background-attachment: scroll;
+    position: fixed;
+    right: 62px ;
+    bottom: 30px ;
+    border-radius: 100% ;
+    border: 3px solid ;
+    width: 110px;
+    height: 110px;
+    animation: wave-stroke 2s infinite cubic-bezier(.37, 0, .8, .77);
+    display:block;
+}
+@keyframes wave-stroke{
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.3);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.photo{
+    margin-top:30px;
+    margin-left:50px;
+    position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.zyg{
+    position:absolute;
+    left: 40px;
+    top:170px;
+    animation: wave-men 5s linear infinite; 
+    overflow: hidden;
+}
+.men2{
+    position:absolute;
+    right: 40px;
+    top:130px;
+    animation: wave-men 5s linear infinite; 
+    overflow: hidden;
+}
+.men{
+    position:absolute;
+    right: -5px;
+    top:130px;
+    animation: wave-men 5s linear infinite; 
+    overflow: hidden;
+}
+@keyframes wave-men{
+    0% {
+        transform: translateX(0%); /* Начальная позиция (слева за пределами экрана) */
+    }
+    50% {
+        transform: translateX(-3%); /* Конечная позиция (справа за пределами экрана) */
+    }
+    100% {
+        transform: translateX(0%); /* Возврат в начальную позицию */
+    }
+}
+
+.leg{
+    margin:0px;
+    background-color: rgba(36, 36, 36, 0.435);
+    height: 100%;
+    width: 100%;
+    align-items:end;
+}
+
+.bod{
+    background-color: rgba(36, 36, 36, 0.849);
+    height: 150%;
+    width: 100%;
+}
+
+.header{
+    height: 850px;
+    width: 100%;
+    margin:0px;
+    background-image: url('fon3.jpg');
+    background-size: cover; /* Изображение будет растягиваться, чтобы покрыть весь элемент */
+    background-position: center; /* Центрирует изображение */
+    background-repeat: no-repeat; /* Не повторяет изображение */
+    background-attachment: fixed; /* Фиксирует фон при прокрутке */
+    animation: moveBackground 15s linear infinite;
+}
+
+
+.header1{
+    height: 500px;
+    width: 100%;
+    margin:0px;
+    background-image: url('fon3.jpg');
+    background-size: cover; /* Изображение будет растягиваться, чтобы покрыть весь элемент */
+    background-position: center; /* Центрирует изображение */
+    background-repeat: no-repeat; /* Не повторяет изображение */
+    background-attachment: fixed; /* Фиксирует фон при прокрутке */
+    animation: moveBackground 15s linear infinite;
+}
+
+
+
+
+.my-btn2 { 
+    margin-right: 70px;           /* задаем отступ от кнопки справа */
+    margin-top: 7px;             /* задаем отступ от кнопки сверху*/
+    width: 400px;                 /* задаем ширину кнопки */
+    height: 100px;                /* задаем высоту кнопки */
+    border-radius: 25px;          /* округляем кнопку */
+    border: 3px solid rgba(172, 142, 88, 0.849);                /* отключаем обводку */
+    background: rgba(36, 36, 36, 0.849);         /* задаем серый цвет кнопки */
+    color: #ffffff;                /* задаем белый цвет текста внутри кнопки */
+    font-size: 1.7rem;           /* увеличим размер шрифта */
+    font-family: 'Times New Roman', Times, serif; /* сменим шрифт */
+    cursor: pointer;             /* при наведении на кнопку курсор будет изменен
+                                    со стрелки на 'указательный палец' */
+    user-select: none;           /* отключаем возможность выделить текст внутри кнопки */
+    font-weight: 900;
+    box-shadow: 6px 6px 7px rgba(172, 143, 88, 0.911); /* Тень вправо-вниз */
+    font-weight: bold;
+    margin-bottom:20px;
+}
+.my-btn2::after {
+    content: var(--after-content, ''); /* Создаем пустой элемент */
+    transform: translate(-50%, 18%); /* Сдвигаем текст вниз на 20% */
+    display: flex; /* Используем flex для центрирования текста */
+    justify-content: center; /* Центрируем текст по горизонтали */
+    align-items: center; /* Центрируем текст по вертикали */
+    color: white; /* Цвет текста на дублирующей кнопке */
+    line-height: 1; /* Убираем лишние отступы между строками */ 
+    position: absolute; /* Абсолютное позиционирование для дублирующей кнопки */
+    top: 0;
+    left: -50%; /* Начальное положение - справа от оригинала */
+    width: 101%;                 /* задаем ширину кнопки */
+    height: 100%; 
+    transform: translateX(-50); /* Начальное положение */
+    opacity: 0; /* Начальная прозрачность */
+    background-color: rgba(172, 142, 88, 0.849); /* Полупрозрачный цвет */
+    border-radius: 25px; /* Закругление углов */
+    transition: transform 0.3s ease; /* Плавный переход для анимации */
+    z-index: 1; /* Помещаем над оригинальной кнопкой */
+}
+
+.my-btn2:hover::after {
+    opacity: 1; /* Делаем дублирующую кнопку видимой */
+    animation: shake 1.2s forwards; /* Запуск анимации при наведении */
+}
+
+.my-btn2:hover {
+    background-color: rgba(36, 36, 36, 0.849); /* Цвет кнопки при наведении */
+    transform: scale(1.05); /* Увеличение кнопки при наведении */
+
+}
+@keyframes shake {
+    0% { transform: translateX(-25%); }
+
+    100% { transform: translateX(49%); }
+}
+
+.vlas { 
+    margin-right: 100px;           /* задаем отступ от кнопки справа */
+    margin-top: 7px;             /* задаем отступ от кнопки сверху*/
+    width: 300px;                 /* задаем ширину кнопки */
+    height: 400px;                /* задаем высоту кнопки */
+    border-radius: 25px;          /* округляем кнопку */
+    border: 3px solid rgba(172, 142, 88, 0.849);                /* отключаем обводку */
+    background: rgba(36, 36, 36, 0.849);         /* задаем серый цвет кнопки */
+    color: #ffffff;                /* задаем белый цвет текста внутри кнопки */
+    font-size: 1.7rem;           /* увеличим размер шрифта */
+    font-family: 'Times New Roman', Times, serif; /* сменим шрифт */
+    cursor: pointer;             /* при наведении на кнопку курсор будет изменен
+                                    со стрелки на 'указательный палец' */
+    user-select: none;           /* отключаем возможность выделить текст внутри кнопки */
+    font-weight: 900;
+    box-shadow: 6px 6px 7px rgba(172, 143, 88, 0.911); /* Тень вправо-вниз */
+    font-weight: bold;
+    margin-bottom:20px;
+    text-align: center;
+    display: flex; /* Используем flex для центрирования текста */
+    justify-content: center; /* Центрируем текст по горизонтали */
+    align-items:end; /* Центрируем текст по вертикали */
+    flex-direction: column;
+} 
+
+.my-btn { 
+    background-attachment: scroll;
+    position: fixed; /* Фиксированное позиционирование */
+    width: 100px;  /* задаем ширину кнопки */
+    height: 100px; 
+    bottom: 40px; /* Отступ от нижнего края */
+    right: 70px; /* Отступ от правого края */
+
+    background-color: rgba(172, 142, 88, 0.849); /* Цвет фона кнопки */
+    color: white; /* Цвет текста */
+    border: none; /* Убираем рамку */
+    border-radius: 100%; /* Скругленные углы */
+    cursor: pointer; /* Курсор в виде указателя */
+    font-size: 16px; /* Размер шрифта */
+    user-select: none;  
+    display:block;
+} 
+/* hover - это состояние элемента, когда на него наведен курсор */
+.my-btn:hover{
+background: rgba(172, 143, 88, 0.911); 
+}
+
+/* active - это состояние активации элемента. В случае кнопки - нажатие на нее */
+.my-btn:active {
+filter: brightness(130%); /* увеличим интенсивность цвета для эффекта вспышки */
+}
+
+.head{
+    display:flex;
+    margin-top: 10px;
+    margin-bottom: 0px;
+    text-align: center;
+    align-items: center;
+    justify-self: center;
+    justify-content: center;
+}
+
+.chat-img {
+    content: url('vb1.png'); /* Исходное изображение */
+}
+
+.chat:hover .chat-img {
+    content: url('vb2.png'); /* Изображение при наведении */
+}
+
+.chat1-img {
+    content: url('tg1.png'); /* Исходное изображение */
+}
+
+.chat1:hover .chat1-img {
+    content: url('tg2.png'); /* Изображение при наведении */
+}
+
+.chat2-img {
+    content: url('vk1.png'); /* Исходное изображение */
+}
+
+.chat2:hover .chat2-img {
+    content: url('vk2.png'); /* Изображение при наведении */
+}
+
+.chat3-img {
+    content: url('ws1.png'); /* Исходное изображение */
+}
+
+.chat3:hover .chat3-img {
+    content: url('ws2.png'); /* Изображение при наведении */
+}
+
+.chat{
+    margin-left:7px;
+    margin-right: 7px;
+    user-select: none;
+}
+.chat3{
+    margin-left:7px;
+    margin-right: 7px;
+    user-select: none;
+}
+
+.chat1{
+    margin-left:0;
+    margin-right: 7px;
+    user-select: none;
+}
+
+.chat2{
+    margin-left:7px;
+    margin-right:14px;
+    user-select: none;
+}
+
+
+.center{
+    text-align: center;
+    align-items: center;
+    justify-self: center;
+    justify-content: center;
+    user-select: none;
+}
+.head-text{
+    display:flex;
+    margin-left:50px;
+    margin-right:50px;
+}
+.head-text1{
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-self: center;
+    justify-content: center;
+}
+
+.leg-text{
+    display:flex;
+    margin-left:45px;
+    align-items: center;
+    justify-self: center;
+    justify-content: center;
+    color:white;
+    font-size: 1.5rem;
+    font-family:Gilroy;
+}
+
+.bod-text{
+    display:flex;
+    margin-left:270px;
+    margin-bottom:10px;
+    margin-top:40px;
+}
+.bod-text1{
+    display:flex;
+    margin-left:150px;
+    margin-bottom:10px;
+    margin-top:40px;
+}
+.tel{
+    display:flex;
+    font-size: 1.5rem;
+    font-family:Gilroy;
+    margin-left: 40px;
+    color:white;
+    user-select: none;
+
+}
+.tel:hover{
+    color:rgba(172, 142, 88, 0.849);
+}
+.menu{
+    font-size: 1.5rem;
+    font-family:Gilroy;
+    margin-left: 40px;
+    color:white;
+    user-select: none;
+
+}
+.menu:hover {
+    text-decoration: underline;
+    color:rgba(172, 142, 88, 0.849);
+
+}
+
+.pol{
+    float: left;
+    width: 50%;
+    overflow: hidden;
+    margin-left:50px;
+    margin-top:70px;
+    text-align: left;
+    font-size: 1.7rem;           /* увеличим размер шрифта */
+    font-family: 'Times New Roman', Times, serif; /* сменим шрифт */
+    color:aliceblue;
+}
+
+.text{
+    /*float: left;*/
+    width: 1300px;
+    overflow: hidden;
+    margin-left:50px;
+    margin-right: 50px;
+    margin-top:40px;
+    text-align:left;
+    font-size: 1.7rem;           /* увеличим размер шрифта */
+    font-family: 'Times New Roman', Times, serif; /* сменим шрифт */
+    color:aliceblue;
+}
+.text1{
+    /*float: left;*/
+    justify-content: center; /* Центрируем текст по горизонтали */
+    width: 100%;
+    overflow: hidden;
+    text-align:center;
+    font-size: 1.5rem;           /* увеличим размер шрифта */
+    font-family: 'Times New Roman', Times, serif; /* сменим шрифт */
+    color:aliceblue;
+}
+.text2{
+    /*float: left;*/
+    justify-content: center; /* Центрируем текст по горизонтали */
+    width: 100%;
+    margin-left:25%;
+    overflow: hidden;
+    text-align:center;
+    font-size: 1.5rem;           /* увеличим размер шрифта */
+    font-family: 'Times New Roman', Times, serif; /* сменим шрифт */
+    color:aliceblue;
+}
+
+#wrapper3 {
+    display: flex;
+    margin-top:400px;
+    align-items: center;
+    justify-self: center;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+#right3 {
+    float: center;
+    width: 50%;
+    overflow: hidden;
+    margin-left:60px;
+    margin-right:40px;
+    margin-top:0px;
+    text-align: center;
+    font-size: 1.2rem;           /* увеличим размер шрифта */
+    font-family: 'Courier New', Courier, monospace; /* сменим шрифт */
+    color:aliceblue;
+    display: flex;
+    align-items: center;
+    justify-self: center;
+    justify-content: center;
+  }
+   
+  #left3 {
+
+    width: 50%;
+    color:aliceblue;
+
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-self: center;
+    justify-content: center;
+
+    float: right;
+
+
+    margin-left:40px;
+    margin-right:70px;
+    margin-top:0px;
+    text-align: center;
+    font-size: 1.2rem;           /* увеличим размер шрифта */
+    font-family: 'Courier New', Courier, monospace; /* сменим шрифт */
+  }
+
+
+.filmstrip {
+    margin-top:100px;
+    display: flex;
+    overflow-x: auto; /* Горизонтальная прокрутка */
+    white-space: nowrap; /* Запрет на перенос строк */
+    background-size: cover;
+    width: 100vw; /* Ширина на весь экран */
+    height: 700px; /* Высота кинопленки */
+
+}
+
+
+
+.frame {
+    min-width: 900px; /* Минимальная ширина каждого кадра */
+    height: 300px; /* Высота кадра */
+    position: relative; /* Для позиционирования текста */
+    margin-right: 0px; /* Отступ между кадрами */
+}
+
+.frame img {
+
+    width: 900px; /* Ширина изображения на весь кадр */
+    height: 300px; /* Автоматическая высота */
+}
+
+.frame p {
+    position: absolute; /* Абсолютное позиционирование текста */
+    bottom: 10px; /* Отступ от нижней части */
+    left: 10px; /* Отступ от левой части */
+    color: white; /* Цвет текста */
+    background: rgba(0, 0, 0, 0.5); /* Полупрозрачный фон для текста */
+    padding: 5px; /* Отступы вокруг текста */
+}
+
+
+
+
+
+
+
+
+
+
+
+.search-container {
+    text-align: center; /* Центрируем контейнер */
+    margin-top: 20px; /* Отступы сверху и снизу */
+}
+
+#search {
+    width: 300px; /* Ширина поля поиска */
+    padding: 10px; /* Отступы внутри поля */
+    border: 2px solid rgba(172, 142, 88, 0.849); /* Цвет границы */
+    border-radius: 5px; /* Закругленные углы */
+    font-size: 1rem; /* Размер шрифта */
+}
+#search-button {
+    padding: 10px 15px;
+    border: 2px solid rgba(172, 142, 88, 0.849);
+    background-color: rgba(172, 142, 88, 0.849);
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Тень для эффекта */
+}
+
+
+
+/* hover - это состояние элемента, когда на него наведен курсор */
+#search-button:hover{
+    background: rgba(158, 127, 69, 0.911); 
+}
+    
+/* active - это состояние активации элемента. В случае кнопки - нажатие на нее */
+#search-button:active {
+filter: brightness(130%); /* увеличим интенсивность цвета для эффекта вспышки */
+}
+
+
+
+
+
+
+
+.scrollToTop {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    display: none; /* Скрываем кнопку по умолчанию */
+    padding: 10px 15px;
+    background-color: rgba(131, 109, 67, 0.849);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.scrollToTop:hover {
+    background-color: rgba(158, 127, 69, 0.911);
+}
+
+
+.menu3 {
+    font-size: 1.5rem;           /* увеличим размер шрифта */
+    font-family: 'Times New Roman', Times, serif; /* сменим шрифт */
+    color:aliceblue;
+    margin-left:30px;
+    margin-bottom:40px;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+
+
+
+
+
+#chat-window {
+    display:none;
+    position: fixed; /* Фиксированное позиционирование */
+    bottom: 200px; /* Отступ от нижнего края */
+    right: 40px; /* Отступ от правого края */
+    width: 300px; /* Ширина окна */
+    border: 1px solid #ccc; /* Рамка */
+    border-radius: 5px; /* Закругленные углы */
+    background: white; /* Цвет фона */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Тень */
+    padding: 10px; /* Отступы внутри окна */
+}
+
+#chat-header {
+    background: rgba(131, 109, 67, 0.849);
+    color: white;
+    padding: 10px;
+    border-radius: 5px 5px 0 0;
+    text-align: center;
+}
+
+#chat-messages {
+    height: 130px;
+    overflow-y: auto;
+    margin: 5px 0;
+}
+
+#chat-input {
+    width: 90%;
+    padding: 5px;
+    border: 2px solid rgba(131, 109, 67, 0.849);
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-self: center;
+    justify-content: center;
+}
+
+
+.user-icon{
+    width:30px;
+    height:30px;
+}
+.ai-icon{
+    width:40px;
+    height:30px;
+
+}
