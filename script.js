@@ -38,29 +38,26 @@ buttons.forEach(button => {
 
 
 
+const searchButton = document.getElementById('search-button');
+if (searchButton) {
+    searchButton.addEventListener('click', function() {
+        const searchValue = document.getElementById('search').value.toLowerCase();
+        const months = document.querySelectorAll('.month');
+        let found = false;
 
+        months.forEach(month => {
+            if (month.textContent.toLowerCase().includes(searchValue)) {
+                month.scrollIntoView({ behavior: 'smooth' });
+                found = true;
+                return;
+            }
+        });
 
-
-
-document.getElementById('search-button').addEventListener('click', function() {
-    const searchValue = document.getElementById('search').value.toLowerCase();
-    const months = document.querySelectorAll('.month');
-    let found = false;
-
-    months.forEach(month => {
-        if (month.textContent.toLowerCase().includes(searchValue)) {
-            month.scrollIntoView({ behavior: 'smooth' });
-            found = true; // Устанавливаем флаг, если нашли месяц
-            return; // Выходим из цикла, если нашли
+        if (!found) {
+            alert('Месяц не найден');
         }
     });
-
-    if (!found) {
-        alert('Месяц не найден'); // Сообщение, если месяц не найден
-    }
-});
-
-
+}
 
 
 
